@@ -2,7 +2,7 @@ import * as React from 'react';
 import {
   View,
   Animated,
-  TouchableWithoutFeedback,
+  ableWithoutFeedback,
   TouchableWithoutFeedbackProps,
   StyleSheet,
   StyleProp,
@@ -250,16 +250,9 @@ const Touchable = ({
   ...rest
 }: TouchableProps) =>
   TouchableRipple.supported ? (
-    <TouchableRipple
-      {...rest}
-      disabled={rest.disabled || undefined}
-      borderless={borderless}
-      centered={centered}
-      rippleColor={rippleColor}
-      style={style}
-    >
-      {children}
-    </TouchableRipple>
+    <TouchableWithoutFeedback {...rest}>
+      <View style={style}>{children}</View>
+    </TouchableWithoutFeedback>
   ) : (
     <TouchableWithoutFeedback {...rest}>
       <View style={style}>{children}</View>
